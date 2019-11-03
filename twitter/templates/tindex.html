@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% block title %}Manage Twitter{% endblock %}
+{% block content %}
+<div class="row">
+    <span class="col-md-12"><a class="pull-right" href="/logout">Log Out</a></span>
+</div>
+<div class="row">
+<div class="panel col-md-2">
+    <ul class="list-group ">
+      <li class="list-group-item"><a href="{% url 'twitter:credentials' %}">Twitter Credentails</a> </li>
+      <li class="list-group-item"><a href="{% url 'twitter:hashsearch' %}">Twitter # tag search</a></li>
+
+    </ul>
+</div>
+<div class="col-md-8">
+    {% block managetwit %}
+        <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+        </form>
+    {% endblock %}
+
+</div>
+</div>
+{% endblock %}

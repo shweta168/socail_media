@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+          rel="stylesheet" media="screen">
+      <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'jquery-3.3.1.js' %}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="ascii"/>
+
+  </head>
+
+  <body class="container-fluid">
+    {% block title %}Home Page{% endblock %}
+  <div id="content">
+    {% block content %}
+      <h2>Login</h2>
+      <form method="post" class="form-group">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+      </form>
+
+    {% endblock content %}
+  </div>
+     <a href="{% url 'signup' %}">SignUp Here</a>
+
+  </body>
+</html>

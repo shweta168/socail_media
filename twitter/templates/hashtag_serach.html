@@ -1,0 +1,17 @@
+{% extends 'tindex.html' %}
+
+{% block title %}Twitter # Tag Search{% endblock %}
+
+{% block managetwit %}
+  <h2>Twitter Hash Tag</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+{% if text_list %}
+  {% for i in text_list %}
+    <p>{{i}}</p>
+  {% endfor %}
+{% endif %}
+{% endblock %}

@@ -34,7 +34,7 @@ class SignUpView(generic.FormView):
         username = self.request.POST['username']
         password = self.request.POST['password']
         email = self.request.POST['email']
-
+        print("hello")
         user = User.objects.create_user(username=username, password=password, email=email)
         user.save()
         # return super(SignUpView,self).form_valid(form)
